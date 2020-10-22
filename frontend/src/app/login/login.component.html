@@ -1,0 +1,10 @@
+<h1>Login !</h1>
+
+<div class="container">
+  <p class="alert alert-warning" *ngIf="msgerror">Authentication Error</p>
+  <div>
+    User name : <input type="text" placeholder="Enter user name" name="userName" [(ngModel)]="userName">
+    Password : <input type="password" placeholder="password" name="password" [(ngModel)]="password" [(ngModel)]="password">
+    <button (click)="handleLogin()" class="btn btn-success">Submit</button>
+  </div>
+</div>

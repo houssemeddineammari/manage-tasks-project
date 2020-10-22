@@ -1,0 +1,16 @@
+<h1>Welcome !</h1>
+<div class="container">
+    Welcome {{name}} You can manage your todos <a routerLink="/list">here</a>
+</div>
+<div class="container">
+    Click here to get a customized welcome message here <button (click)="getListOfTodosByUser()"
+        class="btn btn-success">Welcome</button>
+</div>
+
+<div class="container" *ngIf="dataFromServer">
+    <h2>Response From Server {{dataFromServer}}</h2>
+</div>
+
+<div>
+    <p class="alert alert-danger" *ngIf="serverError">{{serverError}}</p>
+</div>
