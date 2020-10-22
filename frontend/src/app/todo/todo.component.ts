@@ -21,7 +21,10 @@ export class TodoComponent implements OnInit {
   ngOnInit() {
   this.id = this.route.snapshot.params['id'];
   this.selectedTodo = new Todo(this.id, '', new Date(), false);
-  this.getTodoByUserAndId();
+  if(this.id != -1) {
+    this.getTodoByUserAndId();
+  }
+  
   }
 
   getTodoByUserAndId() {
@@ -35,7 +38,21 @@ export class TodoComponent implements OnInit {
   }
 
   saveTodo() {
-    
+    if(this.id != -1) {
+      this.todoService.updateTodo('houssem', this.id, this.selectedTodo).subscribe(
+        response => {
+          console.log(response);
+          this.router.navigate(['list']);
+    }
+    );
+    } else {
+      this.todoService.createTodo('houssem', this.selectedTodo).subscribe(
+        response => {
+          console.log(response);
+          this.router.navigate(['list']);
+    }
+    );
+    }
   }
 
 }
