@@ -83,4 +83,8 @@ export class TodoListComponent implements OnInit {
     this.route.navigate(['list',id]);
 
   }
+
+  createTodo() {
+    this.route.navigate(['list',-1]);
+  }
 }
