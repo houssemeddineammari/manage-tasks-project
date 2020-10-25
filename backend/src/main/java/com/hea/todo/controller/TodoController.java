@@ -59,8 +59,20 @@ public class TodoController {
 	@PutMapping(path="/users/{userName}/todo/{id}")
 	public ResponseEntity<Todo> EditTodo(@RequestBody Todo todo,@PathVariable String userName, @PathVariable int id) {
 		Todo todoUpdated = todoService.saveTodo(todo);
-		return new ResponseEntity<Todo>(todoUpdated, HttpStatus.OK);
+		return new ResponseEntity<Todo>(todo, HttpStatus.OK);
 	}
+	
+	
+	@PostMapping(path="/users/{userName}/todo")
+	public ResponseEntity<Todo> CreateTodo(@RequestBody Todo todo, @PathVariable String userName) {
+		Todo newTodo = todoService.saveTodo(todo);
+		return new ResponseEntity<Todo>(todo, HttpStatus.OK);
+	}
+	
+	
+	
+	
+	
 	
 	
 }
